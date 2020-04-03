@@ -20,6 +20,7 @@ const indexRouter = require("./routes/index"),
 
 const app = express();
 
+app.use(cors(corsOptions));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,6 +30,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/index", indexRouter);
 app.use("/users", usersRouter);
 app.use('/', postRouter)
-app.use(cors(corsOptions));
+
 
 module.exports = app;
